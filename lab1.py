@@ -14,9 +14,9 @@
 
 class Item:
     def __init__(self, name, price, quantity):
-        self.name = name
-        self.price = price
-        self.quantity = quantity
+        self.set_name(name)
+        self.set_price(price)
+        self.set_quantity(quantity)
 
 # Step 2: Implement a getter for the name attribute.
 # This method should simply return the value of the private _name attribute.        
@@ -29,7 +29,7 @@ class Item:
 # If the value is not a string, it should raise a ValueError.
 
     def set_name(self, new_name):
-        if new_name != str:
+        if not isinstance(new_name, str):
             raise ValueError("New name is not a string!")
         self._name = new_name
 
@@ -44,7 +44,7 @@ class Item:
     def set_price(self, new_price):
         if new_price < 0:
             raise ValueError("New price cannot be a negative!")
-        self.price = new_price
+        self._price = new_price
 
 # Step 6: Implement a getter for the quantity attribute.
 # This method should simply return the value of the private _quantity attribute.
@@ -57,12 +57,39 @@ class Item:
     def set_quantity(self, new_quantity):
         if new_quantity < 0:
             raise ValueError("New Quantity Cannot be a negative!")
-        self.quantity = new_quantity
+        self._quantity = new_quantity
 
 # Step 8: Create instances of the Item class and demonstrate the use of getters and setters.
 # For example, create a new Item and attempt to set its attributes with both valid and invalid values.
 # Print the outputs using the getters to show how the data is managed internally.
 
+#Valid Miata
+try:
+    valid_item = Item("Miata", 12000, 1)
+    print(f"Successfully created Miot :D, It is a {valid_item.get_name()} (duh), it costs {valid_item.get_price()} and there is {valid_item.get_quantity()}")
+    
+except Exception as e:
+    print("Error creating Miot D:", e)
+    
+#Invalid Miata Price
+print()
+try:
+    invalid_item_price = Item("Miata", -12.000, 1)
+except ValueError as e:
+    print("Error creating Miot D:", e)
 
-
-
+#Invalid Miata quantity
+print()
+try:
+    invalid_item_quantity = Item("Miata", 12.000, -1)
+except ValueError as e:
+    print("Error creating Miot D:", e)
+    
+#updating price
+print()
+try:
+    valid_item.set_price(13500)
+    print("Successfully updated price, Miot is more expensive :(, it now costs", valid_item.get_price())
+    
+except ValueError as e:
+    print("Error setting price", e)
