@@ -63,33 +63,34 @@ class Item:
 # For example, create a new Item and attempt to set its attributes with both valid and invalid values.
 # Print the outputs using the getters to show how the data is managed internally.
 
-#Valid Miata
-try:
-    valid_item = Item("Miata", 12000, 1)
-    print(f"Successfully created Miot :D, It is a {valid_item.get_name()} (duh), it costs {valid_item.get_price()} and there is {valid_item.get_quantity()}")
-    
-except Exception as e:
-    print("Error creating Miot D:", e)
-    
-#Invalid Miata Price
-print()
-try:
-    invalid_item_price = Item("Miata", -12.000, 1)
-except ValueError as e:
-    print("Error creating Miot D:", e)
+if __name__ == "__main__":
+    #Valid Miata
+    try:
+        valid_item = Item("Miata", 12000, 1)
+        print(f"Successfully created Miot :D, It is a {valid_item.get_name()} (duh), it costs {valid_item.get_price()} and there is {valid_item.get_quantity()}")
+        
+    except Exception as e:
+        print("Error creating Miot D:", e)
+        
+    #Invalid Miata Price
+    print()
+    try:
+        invalid_item_price = Item("Miata", -12.000, 1)
+    except ValueError as e:
+        print("Error creating Miot D:", e)
 
-#Invalid Miata quantity
-print()
-try:
-    invalid_item_quantity = Item("Miata", 12.000, -1)
-except ValueError as e:
-    print("Error creating Miot D:", e)
-    
-#updating price
-print()
-try:
-    valid_item.set_price(13500)
-    print("Successfully updated price, Miot is more expensive :(, it now costs", valid_item.get_price())
-    
-except ValueError as e:
-    print("Error setting price", e)
+    #Invalid Miata quantity
+    print()
+    try:
+        invalid_item_quantity = Item("Miata", 12.000, -1)
+    except ValueError as e:
+        print("Error creating Miot D:", e)
+        
+    #updating price
+    print()
+    try:
+        valid_item.set_price(13500)
+        print("Successfully updated price, Miot is more expensive :(, it now costs", valid_item.get_price())
+        
+    except ValueError as e:
+        print("Error setting price", e)
