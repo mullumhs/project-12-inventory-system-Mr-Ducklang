@@ -35,7 +35,7 @@ class ItemManager:
         for i, existing_item in enumerate(self.items):
             if existing_item.get_name() == name:
                 del self.items[i]
-                print("Item has been deleted")
+                print(f"{existing_item.get_name()} has been deleted")
                 return True
         print("Item not found")
         return False
