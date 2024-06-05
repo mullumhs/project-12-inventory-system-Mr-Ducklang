@@ -36,7 +36,7 @@ class Item:
 # Step 4: Implement a getter for the price attribute.
 # This method should return the price formatted as a string with two decimal places.
     def get_price(self):
-            return f"${self._price:.2f}"
+        return f"${self._price:.2f}"
 
 # Step 5: Implement a setter for the price attribute.
 # This method should check if the provided value is a non-negative number before setting the _price attribute.
@@ -49,7 +49,7 @@ class Item:
 # Step 6: Implement a getter for the quantity attribute.
 # This method should simply return the value of the private _quantity attribute.
     def get_quantity(self):
-            return self._quantity
+        return self._quantity
 
 # Step 7: Implement a setter for the quantity attribute.
 # This method should check if the provided value is a non-negative integer before setting the _quantity attribute.

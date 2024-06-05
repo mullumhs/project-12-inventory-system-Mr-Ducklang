@@ -20,26 +20,50 @@ class ItemManager:
     def __init__(self):
         self.items = []
 
-    def add_item(self, Item):
+    def add_item(self, item):
         #check duplicate
         for existing_item in self.items:
-            if existing_item.get_name() == Item.get_name():
+            if existing_item.get_name() == item.get_name():
+                print("Error! Item already exists, item not added")
+                return False
+        self.items.append(item)
+        print("Item has been added")
+        return True
 
 
     def remove_item(self, name):
-        print("Item removed")
+        for i, existing_item in enumerate(self.items):
+            if existing_item.get_name() == name:
+                del self.items[i]
+                print("Item has been deleted")
+                return True
+        print("Item not found")
+        return False
 
 
     def update_item_price(self, name, new_price):
-        print("Item updated")
+        for existing_item in self.items:
+            if existing_item.get_name() == name:
+                existing_item.set_price(new_price)
+                print(f"\nUpdated Price for {existing_item.get_name()}")
+                return True
+        print("Error! Item not found")
+        return False
+                
 
 
     def display_items(self):
-        print("Displaying items")
+        print("\nExisting Items: \n")
+        for item in self.items:
+            print(f"Name: {item.get_name()}, Price: {item.get_price()}, Quantity: {item.get_quantity()}")
 
 
     def find_item(self, name):
-        print("Item found")
+        for existing_item in self.items:
+            if existing_item.get_name() == name:
+                return existing_item
+        print("Item not found")
+        return None
 
 # Step 2: Create instances of the Item class and InventoryManager, then demonstrate their usage.
 # E.g. add items to the inventory, remove items, update items, and display the inventory.
@@ -71,5 +95,5 @@ def main():
 
 
 
-if "__name__" == "__main__":
+if __name__ == "__main__":
     main()
