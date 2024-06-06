@@ -49,8 +49,7 @@ class ItemManager:
                 return True
         print("Error! Item not found")
         return False
-                
-
+            
 
     def display_items(self):
         print("\nExisting Items: \n")
