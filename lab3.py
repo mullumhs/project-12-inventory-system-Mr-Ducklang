@@ -27,8 +27,9 @@ def add_item_ui(manager):
     
 # Step 3: Define an update_item function that prompts the user for item details and updates the item in the inventory
 def update_item_ui(manager):
-    name = input("What item is being updated?")
+    name = input("What item is being updated? ")
     price = input("What is the new price? (Leave blank to keep price the same): ")
+    quantity = input("What is the new quantity? (Leave blank to keep price the same):")
     if price:
          price = float(price)
     else:
@@ -38,7 +39,7 @@ def update_item_ui(manager):
     else:
          quantity = None
     if manager.update_item_price(name, price):
-         print("Price Successfully updated")
+         print("Successfully updated")
     else:
          print("No changes made, either input was blank or item not found")
 # Step 4: Define a remove_item function that prompts the user for an item name and removes the item from the inventory
@@ -51,8 +52,8 @@ def remove_item_ui(manager):
  
 # Step 5: Define a display_inventory function that displays all items in the inventory
 def display_items_ui(manager):
-    print("Current tickets:")
     manager.display_items()
+    choice = input("Enter any Key to return to menu")
 
 def main():
     # Step 6: Initialise an instance of InventoryManager
@@ -74,6 +75,7 @@ def main():
         print("4. Display Inventory")
         print("5. Exit\n")
         choice = input("Enter choice: ")
+        print()
 
         # Step 8: Implement the logic to call the appropriate function based on user input
         # Exit the loop if the user chooses 5, otherwise display an error message for invalid choices

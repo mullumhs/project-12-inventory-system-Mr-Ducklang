@@ -12,7 +12,6 @@
 # Step 1: Import the Item class from lab1.py
 from lab1 import Item
 
-
 # Step 2: Define the InventoryManager class as a facade to handle the inventory operations.
 # It should include methods to add, remove, update, and display items in the inventory.
 
@@ -27,7 +26,6 @@ class ItemManager:
                 print("Error! Item already exists, item not added")
                 return False
         self.items.append(item)
-        print("Item has been added")
         return True
 
 
@@ -35,7 +33,6 @@ class ItemManager:
         for i, existing_item in enumerate(self.items):
             if existing_item.get_name() == name:
                 del self.items[i]
-                print(f"{existing_item.get_name()} has been deleted")
                 return True
         print("Item not found")
         return False
@@ -45,7 +42,7 @@ class ItemManager:
         for existing_item in self.items:
             if existing_item.get_name() == name:
                 existing_item.set_price(new_price)
-                print(f"\nUpdated Price for {existing_item.get_name()}")
+                print(f"\nUpdated {existing_item.get_name()}")
                 return True
         print("Error! Item not found")
         return False
@@ -54,7 +51,7 @@ class ItemManager:
     def display_items(self):
         print("\nExisting Items: \n")
         for item in self.items:
-            print(f"Name: {item.get_name()}, Price: {item.get_price()}, Quantity: {item.get_quantity()}")
+            print(f"Name: {item.get_name()} \nPrice: {item.get_price()} \nQuantity: {item.get_quantity()} \n")
 
 
     def find_item(self, name):
